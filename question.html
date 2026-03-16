@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question View</title>
+    <style>
+        body { font-family: sans-serif; display: flex; margin: 0; min-height: 100vh; flex-direction: column; }
+        .main-container { display: flex; flex: 1; }
+        
+        /* Sidebar */
+        .sidebar { 
+            width: 200px; 
+            border-right: 1px solid #ccc; 
+            padding: 20px; 
+            background: #f9f9f9;
+        }
+        .sidebar-item { 
+            padding: 8px; 
+            margin-bottom: 5px; 
+            cursor: pointer; 
+            border: 1px solid transparent;
+        }
+        .sidebar-item:hover { background: #eee; }
+        .sidebar-item.active { background: #007bff; color: white; border-radius: 4px; }
+        .tick { color: #28a745; font-weight: bold; margin-left: 10px; }
+
+        /* Content Area */
+        .content { flex: 1; padding: 40px; box-sizing: border-box; }
+        .question-box { margin-bottom: 30px; border: 1px dashed #aaa; padding: 20px; min-height: 100px; }
+        
+        .interaction-zone { margin-top: 20px; }
+        .input-group { display: flex; gap: 10px; align-items: center; margin-top: 20px; flex-wrap: wrap; }
+        .answer-input { width: 300px; padding: 8px; max-width: 100%; }
+        .unit-input { width: 150px; padding: 8px; max-width: 100%; }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-container { flex-direction: column; }
+            .sidebar { 
+                width: 100%; 
+                border-right: none; 
+                border-bottom: 1px solid #ccc; 
+                display: flex; 
+                overflow-x: auto; 
+                padding: 10px; 
+                white-space: nowrap;
+            }
+            .sidebar h3 { display: none; } /* Hide "Questions" title on mobile to save space */
+            .sidebar-item { 
+                display: inline-block; 
+                margin-right: 10px; 
+                padding: 10px 15px; 
+                border: 1px solid #ddd;
+            }
+            .content { padding: 20px; }
+            .input-group { flex-direction: column; align-items: flex-start; }
+            .answer-input, .unit-input { width: 100%; }
+        }
+
+        .hidden { display: none; }
+        .error-text { color: red; font-weight: bold; margin-top: 10px; }
+        .success-text { color: green; font-weight: bold; margin-top: 10px; }
+        
+        .solution-image { 
+            max-width: 100%; 
+            margin-top: 20px; 
+            border: 2px solid #007bff; 
+            padding: 10px;
+        }
+
+        .nav-buttons { margin-top: 30px; display: flex; gap: 10px; }
+        
+        footer { 
+            border-top: 1px solid #000; 
+            padding: 20px; 
+            text-align: center; 
+            width: 100%;
+        }
+        .back-nav { margin: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="back-nav">
+        <button id="backToChapterBtn"> < Back to Chapter Questions</button>
+    </div>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <h3>Questions</h3>
+            <!-- Generated Questions 1-18 -->
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <h1 id="questionTitle">Question 1</h1>
+            
+            <div class="question-box" id="questionContent">
+                [Question screenshot or text placeholder will appear here]
+            </div>
+
+            <div id="initialButtons">
+                <button onclick="showInteraction()">Try it myself</button>
+                <button onclick="showSolution()">See Solution Instead</button>
+            </div>
+
+            <div id="tryItZone" class="interaction-zone hidden">
+                <div class="input-group">
+                    <input type="text" id="answerIn" class="answer-input" placeholder="Enter answer">
+                    <input type="text" id="unitIn" class="unit-input" placeholder="Unit">
+                    <input type="file" id="imageIn" style="width: 200px;">
+                    <button onclick="checkAnswer()">➔</button>
+                </div>
+                <div id="feedback" class="hidden"></div>
+            </div>
+
+            <div id="solutionZone" class="hidden">
+                <div id="solutionStatus"></div>
+                <div class="solution-image">
+                    <p><strong>Official Solution:</strong></p>
+                    <img id="solImg" src="https://via.placeholder.com/600x400?text=Solution+Image+Placeholder" alt="Solution">
+                </div>
+                <div class="nav-buttons">
+                    <button id="prevBtn" onclick="changeQuestion(-1)">Previous Question</button>
+                    <button id="nextBtn" onclick="changeQuestion(1)">Next Question</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; 2026 Created by Mr. Happy | Email: contact@mrhappy.com</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

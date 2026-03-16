@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATH 1014 Textbook Questions (2026)</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .button-grid { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 10px; 
+            max-width: 1200px; 
+            margin-bottom: 40px;
+        }
+        .chapter-btn { 
+            width: calc(10% - 10px); 
+            padding: 10px; 
+            text-align: center;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+        .resources-section { margin-top: 50px; }
+        .resource-grid { display: flex; gap: 20px; flex-wrap: wrap; }
+        .resource-box { 
+            border: 1px solid #ccc; 
+            padding: 10px; 
+            width: calc(33.33% - 14px); 
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .chapter-btn { width: calc(20% - 10px); } /* 5 per row on tablets */
+            .resource-box { width: calc(50% - 10px); }
+        }
+        @media (max-width: 600px) {
+            .chapter-btn { width: calc(33.33% - 10px); } /* 3 per row on phones */
+            .resource-box { width: 100%; }
+        }
+
+        .thumbnail { 
+            width: 100%; 
+            height: 150px; 
+            background-color: #eee; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        footer { 
+            margin-top: 100px; 
+            border-top: 1px solid #000; 
+            padding-top: 20px; 
+            text-align: center; 
+        }
+    </style>
+</head>
+<body>
+
+    <h1>MATH 1014 Textbook Questions (2026)</h1>
+    <p>Welcome to the academic aid portal for MATH 1014. This resource is designed to help you navigate through textbook problems with step-by-step solutions and interactive practice tools. Good luck with your studies!</p>
+
+    <div class="button-grid" id="chapterGrid">
+        <!-- Buttons 1-28 will be generated here -->
+    </div>
+
+    <h1 class="resources-section">Additional Resources</h1>
+    <div class="resource-grid">
+        <div class="resource-box">
+            <div class="thumbnail">Thumbnail Placeholder 1</div>
+            <a href="#">Lecture Notes Chapter 1-5</a>
+        </div>
+        <div class="resource-box">
+            <div class="thumbnail">Thumbnail Placeholder 2</div>
+            <a href="#">Formula Sheet PDF</a>
+        </div>
+        <div class="resource-box">
+            <div class="thumbnail">Thumbnail Placeholder 3</div>
+            <a href="#">Practice Midterm Exam</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; 2026 Created by Mr. Happy | Email: contact@mrhappy.com</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
