@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc 2: Series Survival Guide</title>
+    <style>
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.5; color: #222; max-width: 1000px; margin: 0 auto; padding: 20px; background-color: #fff; }
+        .page { border: 2px solid #333; padding: 30px; border-radius: 10px; }
+        h1 { text-align: center; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; border-bottom: 4px double #333; padding-bottom: 10px; }
+        h2 { background: #333; color: #fff; padding: 5px 15px; display: inline-block; font-size: 1.1em; margin-top: 25px; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.95em; }
+        th, td { border: 1px solid #444; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .formula-box { border: 1px solid #000; padding: 15px; margin: 10px 0; background: #fafafa; font-family: 'Times New Roman', Times, serif; font-size: 1.1em; }
+        .steps { margin-left: 20px; }
+        .footer { text-align: center; margin-top: 40px; font-size: 0.8em; border-top: 1px solid #ccc; padding-top: 10px; font-style: italic; }
+        @media print {
+            body { padding: 0; background: white; }
+            .page { border: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h1>Series & Power Series Survival Guide</h1>
+
+        <h2>1. The Strategy Tree (Which Test?)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>If the series looks like...</th>
+                    <th>Use this Test</th>
+                    <th>What to look for:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1 / n<sup>p</sup></td>
+                    <td><strong>p-Series</strong></td>
+                    <td>Convergent if p > 1. Divergent if p &le; 1.</td>
+                </tr>
+                <tr>
+                    <td>ar<sup>n-1</sup> or (constant)<sup>n</sup></td>
+                    <td><strong>Geometric</strong></td>
+                    <td>Conv. if |r| < 1. Sum = First / (1 - r).</td>
+                </tr>
+                <tr>
+                    <td>Factorials (n!) or n<sup>n</sup></td>
+                    <td><strong>Ratio Test</strong></td>
+                    <td>Limit L < 1 (Conv), L > 1 (Div), L = 1 (Fail).</td>
+                </tr>
+                <tr>
+                    <td>(-1)<sup>n</sup> b<sub>n</sub></td>
+                    <td><strong>Alternating (AST)</strong></td>
+                    <td>Terms must decrease to 0.</td>
+                </tr>
+                <tr>
+                    <td>Polynomials (n<sup>2</sup>+1)/(n<sup>3</sup>-n)</td>
+                    <td><strong>Limit Comparison</strong></td>
+                    <td>Compare to the highest powers.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>2. Finding the Interval of Convergence</h2>
+        <div class="steps">
+            <p><strong>Step 1:</strong> Apply the <strong>Ratio Test</strong> to the absolute value of the terms.</p>
+            <p><strong>Step 2:</strong> Solve the inequality <em>Limit < 1</em> to find the <strong>Radius (R)</strong>.</p>
+            <p><strong>Step 3:</strong> Check the <strong>endpoints</strong> of your interval individually! This is where most people lose marks. Plug them back into the original series and test for convergence.</p>
+        </div>
+
+        <h2>3. Essential Maclaurin Series (Memorize!)</h2>
+        <div class="formula-box">
+            <strong>Exponential:</strong> e<sup>x</sup> = &Sigma; (x<sup>n</sup> / n!) = 1 + x + x<sup>2</sup>/2! + x<sup>3</sup>/3! + ...<br><br>
+            <strong>Sine:</strong> sin x = &Sigma; [(-1)<sup>n</sup> x<sup>2n+1</sup> / (2n+1)!] = x - x<sup>3</sup>/3! + x<sup>5</sup>/5! - ...<br><br>
+            <strong>Cosine:</strong> cos x = &Sigma; [(-1)<sup>n</sup> x<sup>2n</sup> / (2n)!] = 1 - x<sup>2</sup>/2! + x<sup>4</sup>/4! - ...<br><br>
+            <strong>Geometric:</strong> 1 / (1 - x) = &Sigma; x<sup>n</sup> = 1 + x + x<sup>2</sup> + ... (|x| < 1)<br><br>
+            <strong>Inverse Tan:</strong> arctan x = &Sigma; [(-1)<sup>n</sup> x<sup>2n+1</sup> / (2n+1)] = x - x<sup>3</sup>/3 + x<sup>5</sup>/5 - ...
+        </div>
+
+        <h2>4. Quick Reminders</h2>
+        <ul>
+            <li><strong>The Harmonic Series (&Sigma; 1/n) always diverges.</strong></li>
+            <li>If the limit of the terms <em>isn't 0</em>, the series <strong>diverges immediately</strong> (Test for Divergence).</li>
+            <li>Absolute Convergence &rarr; Conditional Convergence. (If it's absolute, it's already conditional).</li>
+        </ul>
+
+        <div class="footer">
+            Study hard and good luck on the Midterm!
+        </div>
+    </div>
+</body>
+</html>

@@ -14,8 +14,7 @@
             margin-bottom: 40px;
         }
         .chapter-btn { 
-            width: calc(10% - 10px); 
-            padding: 10px; 
+            padding: 10px 20px; 
             text-align: center;
             cursor: pointer;
             box-sizing: border-box;
@@ -32,11 +31,10 @@
 
         /* Responsive Adjustments */
         @media (max-width: 1024px) {
-            .chapter-btn { width: calc(20% - 10px); } /* 5 per row on tablets */
             .resource-box { width: calc(50% - 10px); }
         }
         @media (max-width: 600px) {
-            .chapter-btn { width: calc(33.33% - 10px); } /* 3 per row on phones */
+            .chapter-btn { width: 100%; } 
             .resource-box { width: 100%; }
         }
 
@@ -69,21 +67,17 @@
     <h1 class="resources-section">Additional Resources</h1>
     <div class="resource-grid">
         <div class="resource-box">
-            <div class="thumbnail">Thumbnail Placeholder 1</div>
-            <a href="#">Lecture Notes Chapter 1-5</a>
+            <div class="thumbnail" style="font-size: 3em;">▶️</div>
+            <a href="https://youtube.com/playlist?list=PLchp8U3U_X973lJi3HR4rbR1t_DFvBCMM&si=VhrQCZinIQI_EGmg" target="_blank">Calculus 2 Youtube Playlist</a>
         </div>
         <div class="resource-box">
-            <div class="thumbnail">Thumbnail Placeholder 2</div>
-            <a href="#">Formula Sheet PDF</a>
-        </div>
-        <div class="resource-box">
-            <div class="thumbnail">Thumbnail Placeholder 3</div>
-            <a href="#">Practice Midterm Exam</a>
+            <div class="thumbnail" style="font-size: 3em;">📄</div>
+            <a href="Midterm2_CheatSheet.html" target="_blank">Midterm 2 Cheat Sheet</a>
         </div>
     </div>
 
     <footer>
-        <p>Copyright &copy; 2026 Created by Mr. Happy | Email: contact@mrhappy.com</p>
+        <p>Copyright &copy; 2026 Created by Tasdid Noor | Email: contact@tasdidnoor.com</p>
     </footer>
 
     <script src="script.js"></script>

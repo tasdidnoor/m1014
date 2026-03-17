@@ -27,12 +27,18 @@
 
         /* Content Area */
         .content { flex: 1; padding: 40px; box-sizing: border-box; }
-        .question-box { margin-bottom: 30px; border: 1px dashed #aaa; padding: 20px; min-height: 100px; }
+        .question-box { margin-bottom: 30px; border: 1px dashed #aaa; padding: 20px; min-height: 100px; font-size: 1.2rem; line-height: 1.6; }
+        
+        /* Math Formatting Classes */
+        .math-frac { display: inline-block; vertical-align: middle; text-align: center; padding: 0 5px; }
+        .math-frac .top { display: block; border-bottom: 1px solid #000; padding: 0 3px; }
+        .math-frac .bottom { display: block; padding: 0 3px; }
+        .math-sqrt { border-top: 1px solid #000; padding: 2px 4px; margin-left: 2px; }
+        .math-sqrt-symbol { font-size: 1.3rem; vertical-align: middle; }
         
         .interaction-zone { margin-top: 20px; }
         .input-group { display: flex; gap: 10px; align-items: center; margin-top: 20px; flex-wrap: wrap; }
         .answer-input { width: 300px; padding: 8px; max-width: 100%; }
-        .unit-input { width: 150px; padding: 8px; max-width: 100%; }
         
         /* Responsive Adjustments */
         @media (max-width: 768px) {
@@ -62,11 +68,35 @@
         .error-text { color: red; font-weight: bold; margin-top: 10px; }
         .success-text { color: green; font-weight: bold; margin-top: 10px; }
         
+        /* Math Toolbar */
+        .math-toolbar { 
+            margin-bottom: 15px; 
+            display: flex; 
+            gap: 5px; 
+            flex-wrap: wrap; 
+            background: #eee; 
+            padding: 10px; 
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .math-toolbar button { 
+            font-family: "Times New Roman", serif; 
+            font-size: 1.2rem; 
+            padding: 5px 12px; 
+            min-width: 40px;
+        }
+
         .solution-image { 
             max-width: 100%; 
             margin-top: 20px; 
             border: 2px solid #007bff; 
             padding: 10px;
+        }
+
+        /* Standard Retro Button Style */
+        button {
+            padding: 5px 15px;
+            cursor: pointer;
         }
 
         .nav-buttons { margin-top: 30px; display: flex; gap: 10px; }
@@ -107,11 +137,47 @@
             </div>
 
             <div id="tryItZone" class="interaction-zone hidden">
-                <div class="input-group">
-                    <input type="text" id="answerIn" class="answer-input" placeholder="Enter answer">
-                    <input type="text" id="unitIn" class="unit-input" placeholder="Unit">
-                    <input type="file" id="imageIn" style="width: 200px;">
-                    <button onclick="checkAnswer()">➔</button>
+                <div class="math-toolbar">
+                    <button type="button" onclick="insertSymbol('sum')">∑<sub>□</sub><sup>□</sup></button>
+                    <button type="button" onclick="insertSymbol('root')"><sup>□</sup>√<span style="border-top:1px solid; padding-top:1px;">□</span></button>
+                    <button type="button" onclick="insertSymbol('fraction')"><sup>□</sup>&frasl;<sub>□</sub></button>
+                    <button type="button" onclick="insertSymbol('power')">□<sup>□</sup></button>
+                    <button type="button" onclick="insertSymbol('∫')">∫</button>
+                    <button type="button" onclick="insertSymbol('dx')">dx</button>
+                    <button type="button" onclick="insertSymbol(' + C')">+ C</button>
+                    <button type="button" onclick="insertSymbol('∑')">∑</button>
+                    <button type="button" onclick="insertSymbol('∞')">∞</button>
+                    <button type="button" onclick="insertSymbol('π')">π</button>
+                    <button type="button" onclick="insertSymbol('θ')">θ</button>
+                    <button type="button" onclick="insertSymbol('!')">!</button>
+                    <button type="button" onclick="insertSymbol('|')">| |</button>
+                    <button type="button" onclick="insertSymbol('√')">√</button>
+                    <button type="button" onclick="insertSymbol('^')">^</button>
+                    <button type="button" onclick="insertSymbol('_')">_</button>
+                    <button type="button" onclick="insertSymbol('±')">±</button>
+                    <button type="button" onclick="insertSymbol('→')">→</button>
+                    <button type="button" onclick="insertSymbol('≤')">≤</button>
+                    <button type="button" onclick="insertSymbol('≥')">≥</button>
+                    <button type="button" onclick="insertSymbol('≈')">≈</button>
+                    <button type="button" onclick="insertSymbol('e')">e</button>
+                    <button type="button" onclick="insertSymbol('ln')">ln</button>
+                    <button type="button" onclick="insertSymbol('sin')">sin</button>
+                    <button type="button" onclick="insertSymbol('cos')">cos</button>
+                    <button type="button" onclick="insertSymbol('tan')">tan</button>
+                    <button type="button" onclick="insertSymbol('sec')">sec</button>
+                    <button type="button" onclick="insertSymbol('csc')">csc</button>
+                    <button type="button" onclick="insertSymbol('cot')">cot</button>
+                    <button type="button" onclick="insertSymbol('arcsin')">arcsin</button>
+                    <button type="button" onclick="insertSymbol('arccos')">arccos</button>
+                    <button type="button" onclick="insertSymbol('arctan')">arctan</button>
+                    <button type="button" onclick="insertSymbol('(')">(</button>
+                    <button type="button" onclick="insertSymbol(')')">)</button>
+                </div>
+                <div class="input-group" id="inputsArea">
+                    <!-- Dynamic inputs will be injected here -->
+                </div>
+                <div style="margin-top: 15px;">
+                    <button onclick="checkAnswer()">➔ Check Answer</button>
                 </div>
                 <div id="feedback" class="hidden"></div>
             </div>
@@ -131,7 +197,7 @@
     </div>
 
     <footer>
-        <p>Copyright &copy; 2026 Created by Mr. Happy | Email: contact@mrhappy.com</p>
+        <p>Copyright &copy; 2026 Created by Tasdid Noor</p>
     </footer>
 
     <script src="script.js"></script>
