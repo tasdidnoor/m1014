@@ -56,7 +56,7 @@ const questionData = {
     "11.1-9": { text: "a<sub>n</sub> = cos(nπ). Find the first five terms.", answer: "-1, 1, -1, 1, -1" },
     "11.1-15": { text: "a<sub>1</sub> = 2, a<sub>n+1</sub> = <div class='math-frac'><span class='top'>a<sub>n</sub></span><span class='bottom'>1 + a<sub>n</sub></span></div>. Find the first five terms.", answer: "2, 2/3, 2/5, 2/7, 2/9" },
     "11.1-17": { text: "{ 1/2, 1/4, 1/6, 1/8, 1/10, ... }. Find a formula for a<sub>n</sub>.", answer: "1/(2n)" },
-    "11.1-18": { text: "{ 4, -1, 1/4, -1/16, 1/64, ... }. Find a formula for a<sub>n</sub>.", answer: "4(-1/4)^(n-1)" },
+    "11.1-18": { text: "{ 4, -1, 1/4, -1/16, 1/64, ... }. Find a formula for a<sub>n</sub>.", answer: "((-1)^(n-1))/4^(n-2)" },
     "11.1-19": { text: "{ -3, 2, -4/3, 8/9, -16/27, ... }. Find a formula for a<sub>n</sub>.", answer: "-3(-2/3)^(n-1)" },
     "11.1-22": { text: "{ 1, 0, -1, 0, 1, 0, -1, 0, ... }. Find a formula for a<sub>n</sub>.", answer: "cos((n-1)π/2)" },
     "11.1-27": { text: "a<sub>n</sub> = <div class='math-frac'><span class='top'>5</span><span class='bottom'>n + 2</span></div>. Determine convergence or divergence; if converges, find limit.", type: "limit", answer: "0" },
