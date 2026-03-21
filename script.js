@@ -498,11 +498,11 @@ const questionData = {
 
 const urlParams = new URLSearchParams(window.location.search);
 let currentCh = urlParams.get('ch') || "6.1"; 
-let currentQ = urlParams.get('q') || ""; 
+let currentQ = urlParams.get('q') || "";
 let lastFocusedInput = null;
 
 function isRestricted(ch) {
-    return !ch.startsWith("11.");
+    return false;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -529,10 +529,6 @@ function generateChapterGrid() {
     assignedChapters.forEach(ch => {
         const btn = document.createElement('button');
         btn.className = 'chapter-btn';
-        if (isRestricted(ch)) {
-            btn.style.opacity = "0.6";
-            btn.style.filter = "grayscale(1)";
-        }
         btn.innerText = `Chapter ${ch}`;
         btn.onclick = () => window.location.href = `chapter.html?ch=${ch}`;
         grid.appendChild(btn);
@@ -541,16 +537,7 @@ function generateChapterGrid() {
 
 function generateQuestionGrid() {
     const grid = document.getElementById('questionGrid');
-    const rs = document.querySelector('.resources-section');
-    const rg = document.querySelector('.resource-grid');
     if (!grid) return;
-
-    if (isRestricted(currentCh)) {
-        grid.innerHTML = `<div style="text-align: center; padding: 50px; border: 2px dashed #ccc; width: 100%;"><h2>Focus on Midterm 2</h2><p>Only Chapter 11 materials are active.</p><button onclick="window.location.href='index.html'">Return</button></div>`;
-        if (rs) rs.style.display = 'none';
-        if (rg) rg.style.display = 'none';
-        return;
-    }
 
     document.getElementById('chapterTitle').innerText = `Chapter ${currentCh} Questions`;
     (assignedQuestions[currentCh] || []).forEach(q => {
@@ -564,10 +551,6 @@ function generateQuestionGrid() {
 
 function updateUI() {
     const sidebar = document.getElementById('sidebar');
-    if (isRestricted(currentCh)) {
-        document.querySelector('.content').innerHTML = `<div style="text-align: center; padding: 50px;"><h2>Restricted</h2><button onclick="window.location.href='index.html'">Return</button></div>`;
-        return;
-    }
     if (sidebar) sidebar.style.display = 'block';
 
     document.getElementById('questionTitle').innerText = `Question ${currentQ}`;
