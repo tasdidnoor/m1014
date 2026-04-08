@@ -559,7 +559,7 @@ function updateUI() {
     const qBox = document.getElementById('questionContent');
     const inputsArea = document.getElementById('inputsArea');
 
-    qBox.innerHTML = qInfo?.text || "[Question content placeholder]";
+    qBox.innerHTML = qInfo?.text || "[Content pending]";
     inputsArea.innerHTML = "";
 
     const parts = qInfo?.parts || [{ label: "", type: qInfo?.type, answer: qInfo?.answer }];
@@ -610,7 +610,7 @@ function updateUI() {
     });
 
     const solImg = document.getElementById('solImg');
-    solImg.src = qInfo?.solutionImg || `https://via.placeholder.com/600x400?text=Solution+Ch${currentCh}+Q${currentQ}`;
+    solImg.src = qInfo?.solutionImg || `https://via.placeholder.com/600x400?text=Solution+Pending+for+Ch${currentCh}+Q${currentQ}`;
 
     const questions = (assignedQuestions[currentCh] || []).map(q => q.toString());
     const idx = questions.indexOf(currentQ.toString());
